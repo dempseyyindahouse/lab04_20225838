@@ -1,3 +1,7 @@
+Polymorphism with toString() method
+o Tạo arrayList của Media, thêm một số sản phẩm (DVD, Book, CD) vào 
+danh sách sau đó duyệt qua từng sản phẩm, sử dụng toString() in ra 
+thông tin của mỗi sản phẩm.
 Mặc dù tất cả các lớp CD, DVD, Book đều là lớp con của lớp Media và 
 đều kế thừa phương thức toString() từ lớp cha, mỗi lớp con có thể có 
 một cách triển khai riêng cho phương thức này. Khi duyệt các sản 
