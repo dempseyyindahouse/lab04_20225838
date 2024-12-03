@@ -1,47 +1,34 @@
-public class DigitalVideoDisc {
-    private String title;
-    private String category;
+package Lab02.aims.dics;
+imprort Lab02.hust.soict.dsai.aims.media.Media;
+
+public class DigitalVideoDisc extends Media {
+    private static int nbDigitalVideoDiscs = 0; // Class attribute can khai bao
     private String director;
     private int length;
-    private float cost;
-    
-    public String getTitle() {
-      return title;
-    }
-    public String getCategory() {
-      return category;
-    }
-    public String getDirector() {
-      return director;
-    }
-    public int getLength() {
-      return length;
-    }
-    public float getCost() {
-      return cost;
-    }
-  
+     public DigitalVideoDisc(){
+     }
+
     public DigitalVideoDisc(String title) {
-      this.title = title;
+        setTitle(title);
+        setId(nbDigitalVideoDiscs);
+        nbDigitalVideoDisc++;
     }
-    public DigitalVideoDisc(String title, String category, float cost) {
-      this.title = title;
-      this.category = category;
-      this.cost = cost;
+
+    // Ghi đè phương thức equals
+    @Override
+    public boolean equals(Object obj) {
+        if(this ==obj ) return true
+        if (obj == null || getClass() != obj.getClass()) return false;
+        DigitalVideoDisc dvd = (DigitalVideoDisc) obj;
+ return this.getTitle().equals(disc.getTitle()) &&
+        this.getCategory().equals(disc.getCategory()) &&
+        this.getDirector().equals(disc.getDirector()) &&
+        this.getCost()==disc.getCost() &&
+        this.getlength() == disc.getLength();
     }
-    public DigitalVideoDisc(String title, String category, String director, float cost) {
-      this.title = title;
-      this.category = category;
-      this.director = director;
-      this.cost = cost;
-    }
-    public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
-      this.title = title;
-      this.category = category;
-      this.director = director;
-      this.length = length;
-      this.cost = cost;
-    }
-  
-    
-  }
+@Override
+public String toString() {
+    return "DVD - "" + this.getTitle() + " - " " +
+         getLength() + "mins:"+ this.getCost()+"$";
+}
+}
