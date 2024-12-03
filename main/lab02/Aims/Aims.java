@@ -1,6 +1,3 @@
-//Phan Thanh Thang
-//20225927
-//Class "Cart" source code
 package Lab02.Aims.Cart;
 
 import Lab02.hust.soict.dsai.aims.media.Media;
