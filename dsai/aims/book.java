@@ -24,3 +24,14 @@ public class Book {
         }
     }
 }
+public Book(int id, String title, String category, float cost, String author) {
+    super(title, category, cost);
+    this.authors = new ArrayList<String>(); // Khởi tạo ArrayList
+    this.authors.add(author); // Thêm author vào list
+}
+
+@Override
+public String toString() {
+    String authorString = String.join(", ", this.authors); // Kết hợp các danh sách
+    return "Book " + this.getTitle() + " " + authorString + " " + this.getCost();
+}
