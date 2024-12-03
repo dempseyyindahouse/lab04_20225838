@@ -1,0 +1,6 @@
+Mặc dù tất cả các lớp CD, DVD, Book đều là lớp con của lớp Media và 
+đều kế thừa phương thức toString() từ lớp cha, mỗi lớp con có thể có 
+một cách triển khai riêng cho phương thức này. Khi duyệt các sản 
+phẩm và sử dụng phương thức toString() cho từng đối tượng, mỗi đối 
+tượng sẽ gọi phương thức toString() tương ứng của nó. Do đó kết quả 
+hiển thị của mỗi sản phẩm là khác nhau.
