@@ -1,52 +1,50 @@
+package Lab02.Aims.Cart;
+
+import Lab02.hust.soict.dsai.aims.media.Media;
+import java.util.ArrayList;
+import java.util.Collections;
+
+
 public class Cart {
-    public static final int MAX_NUMBERS_ORDERED = 20;
-    private DigitalVideoDisc[] dvds ;
-    private int qtyOrdered;
+	public static final int MAX_NUMBERS_ORDERED = 20;	
+	private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
+    // Constructor không tham số
+    public Cart() {
+        this.itemsOrdered = new ArrayList<Media>();
+    }
     
-    public Cart(){
-      dvds = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
-      qtyOrdered = 0;
+	public void addMedia(Media media) {
+	    if (!itemsOrdered.contains(media)) {
+	        itemsOrdered.add(media);
+	        System.out.println(media.getTitle() + " has been added to the cart.");
+	    } else {
+	        System.out.println(media.getTitle() + " is already in the cart.");
+	    }
+	}
+
+	public void removeMedia(Media media) {
+	    if (itemsOrdered.contains(media)) {
+	        itemsOrdered.remove(media);
+	        System.out.println(media.getTitle() + " has been removed from the cart.");
+	    } else {
+	        System.out.println(media.getTitle() + " is not in the cart.");
+	    }
+	}
+	
+	public float totalCost() {
+	    float total = 0;
+	    for (Media media : itemsOrdered) {
+	        total += media.getCost();
+	    }
+	    return total;
+	}
+	
+    public void sortMediaByTitleCost() {
+        Collections.sort(itemsOrdered, Media.COMPARE_BY_TITLE_COST);
     }
-  
-    public void addDVD(DigitalVideoDisc disc){
-      if(qtyOrdered < MAX_NUMBERS_ORDERED){
-        dvds[qtyOrdered] = disc;
-        qtyOrdered++;
-        System.out.println("Them thanh cong DVD vao gio hang");
-      } else {
-        System.out.println("Gio hang het cho trong");
-      }
+
+    public void sortMediaByCostTitle() {
+        Collections.sort(itemsOrdered, Media.COMPARE_BY_COST_TITLE);
     }
-  
-    public void removeDVD(DigitalVideoDisc disc){
-      for(int i = 0; i < qtyOrdered; i++){
-        if(dvds[i].equals(disc)){
-          for(int j = i; j < qtyOrdered; j++){
-            dvds[j] = dvds[j+1];
-          }
-          dvds[qtyOrdered-1] = null;
-          qtyOrdered--;
-          System.out.println("Da xoa thanh cong");
-          return;
-        }
-      }
-      System.out.println("Khong tim thay DVD trong gio hang");
-    } 
-  
-    public float totalCost(){
-      float totalCost = 0;
-      for(int i = 0; i < qtyOrdered; i++){
-        totalCost += dvds[i].getCost();
-      }
-      return totalCost;
-    }
-  
-    public void print(){
-      System.out.println("Gio hang: ");
-      for(int i = 0; i < qtyOrdered; i++){
-        System.out.println(dvds[i].getTitle() + " - $" + dvds[i].getCost());
-      }
-      System.out.println("Total cost: $" + totalCost());
-    }
-      
-  }
+    
+}
